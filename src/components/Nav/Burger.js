@@ -44,7 +44,7 @@ export default function Burger() {
                 <div />
                 <div />
             </BurgerStyled>
-            <RightNav open={open} />
+            <RightNav open={open} setOpen={()=>setOpen(false)} />
         </React.Fragment>
     )
 }
