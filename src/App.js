@@ -1,5 +1,6 @@
 import React from 'react'
-import Form from "./components/Form/Form";
+// import Form from "./components/Form/Form";
+import SForm from './components/Form/SForm';
 import Message from './components/Message';
 import Navbar from "./components/Nav/Navbar";
 import Provider from './components/Provider';
@@ -12,7 +13,8 @@ function App() {
         <Navbar></Navbar>
         <Message></Message>
       </Provider>
-      <Form></Form>
+      {/* <Form></Form> */}
+      <SForm></SForm>
     </div>
   );
 }

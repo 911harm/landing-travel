@@ -14,11 +14,11 @@ const MessageStyled = styled.div`
 `
 
 export default function Message() {
-    const [state, setState] = useContext(AppContext)
+    const [state] = useContext(AppContext)
     return (
         <MessageStyled>
             <h2>
-                Hello, welcome, we know that you want to travel in an {state},please fill out the following form:</h2>
+                Hello, welcome, we know that you want to travel in a(n) {state} ,please fill out the following form:</h2>
         </MessageStyled>
     )
 }

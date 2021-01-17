@@ -33,7 +33,7 @@ const RightNavStyled = styled.div`
 
 export default function RightNav({ open, setOpen }) {
   const [airlines, setAirlines] = useState([])
-  const [airline, setAirline] = useContext(AppContext)
+  const [,setAirline] = useContext(AppContext)
   useEffect(() => {
     fetch('./ApiFake.json')
       .then(response => response.json())
@@ -41,7 +41,7 @@ export default function RightNav({ open, setOpen }) {
         setAirlines(data)
         setAirline(data[0].name)
       })
-  }, [])
+  }, [])// eslint-disable-line react-hooks/exhaustive-deps
 
   const handlerSelect = (e) => {
     setAirline(e.target.id)

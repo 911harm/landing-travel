@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { useLightbox } from "simple-react-lightbox"
+import LightBox from '../LightBox'
+import SForm from './SForm'
 
 const FormStyled = styled.div`
 .form{
@@ -36,7 +39,9 @@ const FormStyled = styled.div`
             background-color:navy;
         }
     }
-
+}
+.SRLWrapper{
+    display:none;
 }
  
 `
@@ -46,10 +51,13 @@ export default function Form() {
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
     const [age, setAge] = useState("")
+    const { openLightbox, closeLightbox } = useLightbox();
     const submit = (e) => {
         e.preventDefault()
         console.log(name, email, phone, age)
         // message ligthbox
+        openLightbox(0);
+        setTimeout(()=>closeLightbox(),5000)
         setName("")
         setEmail("")
         setPhone("")
@@ -67,19 +75,23 @@ export default function Form() {
                     <input onChange={(e) => setEmail(e.target.value)} value={email} type="email" name="email" placeholder="email" required />
                 </div>
                 <div>
-                    <label htmlFor="phone">Phone</label>
-                    <input onChange={(e) => setPhone(e.target.value)} value={phone} type="text" name="phone" placeholder="phone" required />
+                    <label htmlFor="Phone">Phone</label>
+                    <input onChange={(e) => setPhone(e.target.value)} value={phone} type="tel" name="Phone" placeholder="Phone" required />
                 </div>
                 <div>
-                    <label htmlFor="age">Age</label>
-                    <input onChange={(e) => setAge(e.target.value)} value={age} type="number" name="age" min={18} max={100} placeholder="18 to 100" required />
+                    <label htmlFor="Age">Age</label>
+                    <input onChange={(e) => setPhone(e.target.value)} value={phone} type="number" name="Age" placeholder="Age" min={18} max={100} required />
+
                 </div>
                 <div>
                     <button className="submit" type="submit">Send</button>
                 </div>
 
-
             </form>
+            <SForm></SForm>
+            <div className="SRLWrapper">
+                <LightBox></LightBox>
+            </div>
         </FormStyled>
     )
 }
